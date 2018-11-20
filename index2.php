@@ -27,9 +27,9 @@
 	
 	<h2> Insert a new purchase </h2>
 		<form action = "addnewpurchase.php" method="post">
-			Customers ID: <?php include 'getcustomers.php'; ?> <br>
-			Product ID: <?php include 'getproducts.php'; ?> <br>
-			Quantity: <input type="text" name="quantity"> <br>
+			Choose a customer: <br> <?php include 'getcustomers.php'; ?> <br>
+			Choose a product: <br> <?php include 'getproducts.php'; ?> <br>
+			Quantity purchased: <input type="text" name="quantity"> <br>
 		<input type="submit" value="Add New Purchase">
 		</form>
 	<h2> Insert a new customer </h2>

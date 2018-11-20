@@ -13,7 +13,7 @@
 <h1> Here are the products purchased by the customer: </h1>
 <ol>
 <?php
-	$whichCustomerID = $_POST["customers"];
+	$whichCustomerID = $_POST["customer"];
 	$query = 'SELECT DISTINCT products.description FROM products, purchases, customers
 		WHERE purchases.customerid = "' . $whichCustomerID . '"
 		AND purchases.productid = products.productid';

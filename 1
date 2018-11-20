@@ -18,17 +18,13 @@
 	$productID = $_POST["product"];
 	$quantity = $_POST["quantity"];
 	
-	$query1 = 'SELECT COUNT(quantity) FROM purchases
+	$query1 = 'SELECT quantity FROM purchases
 		WHERE "' .$customerID. '" = customerid,
 		AND "' .$productID. '" = productid';
 	
-	$purchase_exists = mysqli_query($connection, $query1);
-	if ($purchase_exists >= 0) {
-		$query2 = 'SELECT quantity FROM purchases
-			WHERE "' .$cusomerID. '" = customerid,
-			AND "' .$productID.'" = productid';
-		$purchase_exists_quantity = mysqli_query($connection, $query2);
-		
+	$purchase_exists_quantity = mysqli_query($connection, $query1);
+	echo "purchase exists! quantity =" .$purchase_exists_quantity;
+	if ($purchase_exists_quantity >= 1) {
 		$new_quantity = intval($purchase_exists_quantity) + intval($quantity); 
 		$query = 'UPDATE purchases SET quantity = "' .$new_quantity. '"
 			WHERE customerid = "' .$customerID. '"
