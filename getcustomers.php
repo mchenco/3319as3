@@ -5,17 +5,31 @@
 		die ("Database query failed.");
 	}
 	
+	echo "<table>
+		<thead>
+		<tr>
+			<th> Select </th>
+			<th> Last Name </th>
+			<th> First Name </th>
+			<th> Customer ID </th>
+			<th> City </th>
+			<th> Phone </th>
+			<th> Agent ID </th>
+		</tr>
+		</thead>
+		<tbody>";
 	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<input type = 'radio' name='customer' value = '" . $row["customerid"] . "'>";
-		echo "<b> Name: </b>" . $row["lname"] . ", " . $row["fname"];
-		echo " ";
-		echo "<b> Customer ID: </b>" . $row["customerid"] . " ";
-		echo "<b> City: </b>" . $row["city"] . " ";
-		echo "<b> Phone: </b>" . $row["phone"] . " ";
-		echo "<b> Agent ID: </b>" . $row["agentid"] . " ";
-		echo "<br>";
+		echo "<tr>";
+		echo "<td> <input type='radio' name='customer' value = '" . $row["customerid"] . "'> </td>";
+		echo "<td>" . $row["lname"] . "</td>";
+		echo "<td>" . $row["fname"] . "</td>";
+		echo "<td>" . $row["customerid"] . "</td>";
+		echo "<td>" . $row["city"] . "</td>";
+		echo "<td>" . $row["phone"] . "</td>";
+		echo "<td>" . $row["agentid"] . "</td>";
+		echo "</tr>";
 	}
-	echo "<br>";
+	echo "</tbody> </table>";
 mysqli_free_result($result);
 ?>
 

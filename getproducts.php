@@ -5,13 +5,30 @@
 		die("Database query3 failed.");
 	}
 	
+	echo "
+		<table>
+			<thead>
+			<tr>
+				<th> Select </th>
+				<th> Description </th>
+				<th> Product ID </th>
+				<th> Price </th>
+				<th> Quantity </th>
+			</tr>
+			</thead>
+			<tbody>
+		";
 	while ($row = mysqli_fetch_assoc($result)) {
-		echo "<input type='radio' name='product' value='" .$row["productid"]. "' >";
-		echo $row["description"];
-		echo "<b> Product ID: </b>" . $row["productid"] . " ";
-		echo "<b> Price: </b>" . $row["cost"] . " ";
-		echo "<b> Quantity: </b>" . $row["quantity"] . " ";
-		echo "<br>";
+		echo "<tr>";
+		echo "<td> <input type='radio' name='product' value='" .$row["productid"]. "' > </td>";
+		echo "<td>" . $row["description"] . "</td>";
+		echo "<td>" . $row["productid"] . "</td>";
+		echo "<td>" . $row["cost"] . "</td>";
+		echo "<td>" . $row["quantity"] . "</td>";
+		echo "</tr>";
 	}
+	echo "
+		</tbody>
+		</table>";
 	mysqli_free_result($result);
 ?>
