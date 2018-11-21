@@ -25,7 +25,7 @@
 	$purchase_exists = mysqli_query($connection, $query1);
 	if ($purchase_exists >= 0) {
 		$query2 = 'SELECT quantity FROM purchases
-			WHERE "' .$cusomerID. '" = customerid,
+			WHERE "' .$customerID. '" = customerid,
 			AND "' .$productID.'" = productid';
 		$purchase_exists_quantity = mysqli_query($connection, $query2);
 		
