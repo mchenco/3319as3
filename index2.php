@@ -54,6 +54,10 @@
 		</form>
 
 	<h2> List all customers who bought more than X of any product </h2>
+		<form action="getcustomerpurchasesover.php" method="post">
+			Choose a product: <br> <?php include 'getproducts.php' ?> <br>
+			Enter a quantity: <input type="text" name="quantity"> <br>
+		<input type="submit" value="Get customers">	
 	<h2> List the description of a product that has never been purchased </h2>
 	<h2> List the total number of purchases for a particular product </h2>
 	<h2> BONUS: Add an extra field to the customer's table </h2>
