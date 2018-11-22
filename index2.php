@@ -48,6 +48,11 @@
 		<input type="submit" value="Update customer">
 		</form>
 	<h2> Delete a customer </h2>
+		<form action="deletecustomer.php" method="post">
+			Choose a customer: <br> <?php include 'getcustomers.php'; ?> <br>
+		<input type="submit" value="Delete customer">
+		</form>
+
 	<h2> List all customers who bought more than X of any product </h2>
 	<h2> List the description of a product that has never been purchased </h2>
 	<h2> List the total number of purchases for a particular product </h2>
