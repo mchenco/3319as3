@@ -42,6 +42,11 @@
 		<input type="submit" value="Add New Customer">
 		</form>
 	<h2> Update a customer phone number </h2>
+		<form action="updatecustomer.php" method="post">
+			Choose a customer: <br> <?php include 'getcustomers.php'; ?> <br>
+			Enter a new phone number: <input type="text" name="newphone"> <br>
+		<input type="submit" value="Update customer">
+		</form>
 	<h2> Delete a customer </h2>
 	<h2> List all customers who bought more than X of any product </h2>
 	<h2> List the description of a product that has never been purchased </h2>
