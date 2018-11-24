@@ -69,6 +69,10 @@
 		<input type="submit" value="Get sales">
 		</form>
 	<h2> BONUS: Add an extra field to the customer's table </h2>
+		<form action="getcusimage.php" method="post">
+			Choose a customer: <br> <?php include 'getcustomers.php' ?> <br>
+		<input type="submit" value="Get customer image">
+		</form>
 	<?php
 		mysqli_close($connection);
 	?>
