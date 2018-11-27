@@ -21,9 +21,19 @@
 		</form>
 	
 	<h2> Products </h2>
-		<?php
-			include 'getproducts.php';
-		?>
+		<form action='getproducts.php' method="post">
+			Order by: <br>
+			<select name="sort">
+				<option value="ASC">Ascending</option>
+				<option value="DESC">Descending</option>
+			</select>
+			<br> Sort by: <br>
+			<select name="order">
+				<option value="cost">Price </option>
+				<option value="description"> Description </option>
+			</select>
+			<br> <input type="submit" value="Get products">
+		</form>
 	
 	<h2> Insert a new purchase </h2>
 		<form action = "addnewpurchase.php" method="post">

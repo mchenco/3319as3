@@ -1,5 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Products </title>
+</head>
+
+<body>
 <?php
-	$query = 'SELECT * FROM products ORDER BY description';
+	include 'connectdb.php'
+?>
+
+<h1> Here are the products: </h1>
+
+<?php
+	$order = $_POST["order"];
+	$sort = $_POST["sort"];
+	
+	if ($order && $sort) {
+		$query = 'SELECT * FROM products ORDER BY ' .$order. ' ' .$sort; 
+		echo $query;
+	}
+
+	else {
+		$query = 'SELECT * FROM products ORDER BY description';
+	}	
 	$result = mysqli_query($connection, $query);
 	if (!$result) {
 		die("Database query3 failed.");
