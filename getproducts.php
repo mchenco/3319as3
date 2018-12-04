@@ -10,17 +10,18 @@
 	include 'connectdb.php'
 ?>
 
-<h1> Here are the products: </h1>
-
 <?php
+	//get the specific order/sort that the customer wanted to sort the list by
 	$order = $_POST["order"];
 	$sort = $_POST["sort"];
 	
+	//query with a specific order and sort
 	if ($order && $sort) {
 		$query = 'SELECT * FROM products ORDER BY ' .$order. ' ' .$sort; 
-		echo $query;
 	}
 
+	//if the user does not supply order/sort, just use a basic query
+	//this exists because getproducts.php is used in other places which don't rely on the user supplying a order/sort
 	else {
 		$query = 'SELECT * FROM products ORDER BY description';
 	}	
@@ -29,6 +30,7 @@
 		die("Database query3 failed.");
 	}
 	
+	//print out the products in a table
 	echo "
 		<table>
 			<thead>

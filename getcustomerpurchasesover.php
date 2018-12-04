@@ -11,8 +11,10 @@
 ?>
 
 <?php
+	//find out what product the customer is asking about
 	$productid = $_POST["product"];
 	$quantity = $_POST["quantity"];
+	//query to get the product/purchase data
 	$query = 'SELECT customers.fname, customers.lname, purchases.quantity, products.description
 		FROM products, purchases, customers
 		WHERE purchases.productid = "' . $productid . '"
@@ -23,7 +25,7 @@
 	if (!$result) {
 		die("database query2 failed.");
 	}
-	
+	//print out the purchases in a table
 	echo "Here are the customers who purchased over " .$quantity. " of the chosen product <br>";
 	echo "<table>
 		<thead>
@@ -47,5 +49,10 @@
 	mysqli_free_result($result);
 	mysqli_close($connection);
 ?>
+<form action="http://cs3319.gaul.csd.uwo.ca/vm032/assignment3/index2.php">
+	<input type="submit" value="Go back to home page" />
+</form>
+
+
 </body>
 <html>

@@ -14,15 +14,19 @@
 <ol>
 
 <?php
+	//get the selected customer, product, quantity from the form
 	$customerID = $_POST["customer"];
 	$productID = $_POST["product"];
 	$quantity = $_POST["quantity"];
 	
+	//query to check if the purchase already exists (to see if just quantity needs to be updated)
 	$query1 = 'SELECT COUNT(quantity) FROM purchases
 		WHERE "' .$customerID. '" = customerid,
 		AND "' .$productID. '" = productid';
 	
 	$purchase_exists = mysqli_query($connection, $query1);
+	
+	//if the purchase exists, update the quantity of the purchase
 	if ($purchase_exists >= 0) {
 		$query2 = 'SELECT quantity FROM purchases
 			WHERE "' .$customerID. '" = customerid,
@@ -34,7 +38,8 @@
 			WHERE customerid = "' .$customerID. '"
 			AND productid = "' .$productID. '"';
 	}
-	
+
+	//otherwise, insert a new purchase into the table
 	else { 
 		$query = 'INSERT INTO purchases values("' .$productID. '", "' .$customerID. '", "' .$quantity. '")';
 	
@@ -48,5 +53,9 @@
 	mysqli_close($connection);
 ?>
 </ol>
+<form action="http://cs3319.gaul.csd.uwo.ca/vm032/assignment3/index2.php">
+	<input type="submit" value="Go back to home page" />
+</form>
+
 </body>
 </html>
